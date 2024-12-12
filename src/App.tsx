@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  Select,
+  Label,
+  Button,
+  SelectValue,
+  Popover,
+  ListBox,
+  ListBoxItem
+} from 'react-aria-components';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Panel({ label }: { label: string }) {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="panel">
+      <Select>
+        <Label>{label}</Label>
+        <Button>
+          <SelectValue />
+        </Button>
+        <Popover>
+          <ListBox>
+            <ListBoxItem>Cat</ListBoxItem>
+            <ListBoxItem>Dog</ListBoxItem>
+            <ListBoxItem>Kangaroo</ListBoxItem>
+          </ListBox>
+        </Popover>
+      </Select>
+    </div>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <div>
+      <Panel label="First Favorite Animal" />
+      <Panel label="Second Favorite Animal" />
+      <Panel label="Third Favorite Animal" />
+    </div>
+  );
+}
+
+export default App;
