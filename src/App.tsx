@@ -5,9 +5,9 @@ import {
   SelectValue,
   Popover,
   ListBox,
-  ListBoxItem
-} from 'react-aria-components';
-import './App.css';
+  ListBoxItem,
+} from "react-aria-components";
+import "./App.css";
 
 function Panel({ label }: { label: string }) {
   return (
